@@ -8,6 +8,7 @@ class McpServerApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
+        // load tests
+    }
 
 }

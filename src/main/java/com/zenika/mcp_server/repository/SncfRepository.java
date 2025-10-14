@@ -1,13 +1,15 @@
 package com.zenika.mcp_server.repository;
 
-import com.zenika.mcp_server.models.Journey;
 import com.zenika.mcp_server.repository.models.JourneySncf;
 import com.zenika.mcp_server.repository.models.JourneySummary;
+import com.zenika.mcp_server.repository.models.PlaceSncf;
+import com.zenika.mcp_server.repository.models.PlaceSummary;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class SncfRepository {
@@ -29,5 +31,19 @@ public class SncfRepository {
                 .body(JourneySncf.class);
 
         return response != null ? response.journeys() : List.of();
+    }
+
+    public Optional<List<PlaceSummary>> getPlaces(String city) {
+        var response = restClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("places")
+                        .queryParam("q",city)
+                        .build())
+                .retrieve()
+                .body(PlaceSncf.class);
+
+
+
+        return response != null ? Optional.of(response.places()) : Optional.of(List.of());
     }
 }

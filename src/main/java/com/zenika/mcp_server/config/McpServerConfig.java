@@ -1,6 +1,6 @@
 package com.zenika.mcp_server.config;
 
-import com.zenika.mcp_server.SncfService;
+import com.zenika.mcp_server.service.SncfService;
 import org.springframework.ai.support.ToolCallbacks;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.context.annotation.Bean;
