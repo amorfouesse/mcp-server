@@ -19,12 +19,12 @@ public class SncfRepository {
         this.restClient = restClient;
     }
 
-    public List<JourneySummary> getJourneys(String startCoordinate, String endCoordinate) {
+    public List<JourneySummary> getJourneys(String startSncfCoordinate, String endSncfCoordinate) {
         var response = restClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("journeys")
-                        .queryParam("from",startCoordinate)
-                        .queryParam("to",endCoordinate)
+                        .queryParam("from",startSncfCoordinate)
+                        .queryParam("to",endSncfCoordinate)
                         .queryParam("datetime", LocalDateTime.now())
                         .build())
                 .retrieve()

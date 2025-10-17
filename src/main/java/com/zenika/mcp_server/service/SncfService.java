@@ -17,8 +17,8 @@ public class SncfService{
     }
 
     @Tool(name = "get_journey", description = "Get a journey for a route")
-    public JourneySummary getJourney(String startCity, String endCity) {
-       var journeys = sncfRepository.getJourneys(startCity,endCity);
+    public JourneySummary getJourney(String startSncfCoordinate, String endSncfCoordinate) {
+       var journeys = sncfRepository.getJourneys(startSncfCoordinate,endSncfCoordinate);
        if(journeys.isEmpty()){
            throw new RuntimeException("Journey not found");
        }
