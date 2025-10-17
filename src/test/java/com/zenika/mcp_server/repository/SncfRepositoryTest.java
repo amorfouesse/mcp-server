@@ -1,9 +1,9 @@
 package com.zenika.mcp_server.repository;
 
-import com.zenika.mcp_server.repository.models.JourneySncf;
-import com.zenika.mcp_server.repository.models.JourneySummary;
-import com.zenika.mcp_server.repository.models.PlaceSncf;
-import com.zenika.mcp_server.repository.models.PlaceSummary;
+import com.zenika.mcp_server.repository.model.JourneySncf;
+import com.zenika.mcp_server.repository.model.JourneySummary;
+import com.zenika.mcp_server.repository.model.PlaceSncf;
+import com.zenika.mcp_server.repository.model.PlaceSummary;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

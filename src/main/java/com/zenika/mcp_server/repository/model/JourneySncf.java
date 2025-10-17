@@ -1,4 +1,4 @@
-package com.zenika.mcp_server.repository.models;
+package com.zenika.mcp_server.repository.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
