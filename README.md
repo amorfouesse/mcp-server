@@ -2,6 +2,8 @@
 
 ## Utiliser le serveur
 
+Faire un `mvn clean package` pour crée le JAR qui permet de lancer le serveur MCP.
+
 Dans Claude desktop :
 
 Fichier -> Paramètre -> Développeur -> Modifier la config -> claude_desktop_config
@@ -20,10 +22,8 @@ et mettre :
 }
 ```
 
-Après avoir mis votre "base_path", sauvegardé et redémarrer claude pour qu'il prenne en compte cette nouvelle config.
-Maintenant vous pouvez demander par exemple :
-
-"En utilisant le serveur mcp, donne moi le prochain train entre stop_area:SNCF:87471003 et  stop_area:SNCF:87391003 "
+Après avoir mis votre "base_path", sauvegarder et redémarrer claude pour qu'il prenne en compte cette nouvelle config.
+Maintenant vous pouvez demander par exemple `En utilisant le serveur mcp, donne moi le prochain train entre Rennes et Paris`
 
 ## Debug mode d'intellij 
 
@@ -42,4 +42,4 @@ Puis créer et lancer une configuration sur intellij avec JVM Debug :
 *   port: 5005
 
 
-Et mettez vos points d'arrêts.
+Mettez vos points d'arrêts et sur MCP inspector cliquer sur Tools en haut, puis ``list tools`` et tester votre tool.
