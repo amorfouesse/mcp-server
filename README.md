@@ -1,9 +1,25 @@
 # MCP server
 
-## Utiliser le serveur
+## Utiliser le serveur avec MCP Inspector
 
-Faire un `mvn clean package` pour crée le JAR qui permet de lancer le serveur MCP.
+Faire un `mvn clean install` ensuite un `java -jar ./target/mcp-server-0.0.1-SNAPSHOT.jar`,
+le serveur va se lançer, ensuite sur un autre terminal faire la commande `npx @modelcontextprotocol/inspector`
+qui permet d'avoir l'interface de debug des tools sans LLM.
 
+Puis sur la redirection de MCP inspector, mettez un transport ``Streamable HTTP`` et en url `http://localhost:8080/mcp`,
+un type de connection `Via Proxy` puis connectez-vous.
+
+Si vous souhaitez mettre des points d'arrêts dans intellij, créer et lancer une configuration sur intellij avec JVM Debug :
+
+*   host: localhost
+*   port: 5005
+
+Et mettez vos points d'arrêts.
+
+Ensuite sur MCP inspector cliquer sur Tools en haut, puis `list tools` et tester votre tool.
+
+
+## Lancer le serveur et utiliser Claude Desktop (ne fonctionne pas encore)
 Dans Claude desktop :
 
 Fichier -> Paramètre -> Développeur -> Modifier la config -> claude_desktop_config
@@ -25,21 +41,3 @@ et mettre :
 Après avoir mis votre "base_path", sauvegarder et redémarrer claude pour qu'il prenne en compte cette nouvelle config.
 Maintenant vous pouvez demander par exemple `En utilisant le serveur mcp, donne moi le prochain train entre Rennes et Paris`
 
-## Debug mode d'intellij 
-
-Lancer cette commande qui permet de mettre à jour la jar pour le debug et de lancer en local **MCP inspector**.
-Il nous permet de simuler les tools utiliser par un LLM (à lancer à chaque changement dans le code):
-
-````bash
-mvn clean install && npx @modelcontextprotocol/inspector -e JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 java -jar target/mcp-server-0.0.1-SNAPSHOT.jar --port 8080 --host localhost
-````
-
-Puis sur la redirection de MCP inspector, connectez vous.
-
-Puis créer et lancer une configuration sur intellij avec JVM Debug :
-
-*   host: localhost
-*   port: 5005
-
-
-Mettez vos points d'arrêts et sur MCP inspector cliquer sur Tools en haut, puis ``list tools`` et tester votre tool.
