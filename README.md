@@ -19,25 +19,29 @@ Et mettez vos points d'arrêts.
 Ensuite sur MCP inspector cliquer sur Tools en haut, puis `list tools` et tester votre tool.
 
 
-## Lancer le serveur et utiliser Claude Desktop (ne fonctionne pas encore)
-Dans Claude desktop :
+## Lancer le serveur avec le client MCP mcp for ollama
+pré requis : (https://github.com/jonigl/mcp-client-for-ollama)
 
-Fichier -> Paramètre -> Développeur -> Modifier la config -> claude_desktop_config
-et mettre :
-```json
-{
-  "mcpServers": {
-   "mcp-server": {
-      "command": "java",
-      "args": [
-        "-jar",
-        "YOUR_BASE_PATH/mcp-server/target/mcp-server-0.0.1-SNAPSHOT.jar"
-      ]
-    }
-  }
-}
+- ollama
+- Python 3.10+
+- UV package manager
+
+Puis faire cette commande pour installer le client MCP pour ollama :
+
+```
+pip install --upgrade ollmcp
 ```
 
-Après avoir mis votre "base_path", sauvegarder et redémarrer claude pour qu'il prenne en compte cette nouvelle config.
-Maintenant vous pouvez demander par exemple `En utilisant le serveur mcp, donne moi le prochain train entre Rennes et Paris`
+Pour le lancer en streamable http :
 
+```
+ollmcp -u http://localhost:8080/mcp
+```
+
+faire cette commande pour changer de model :
+
+```
+m
+```
+
+puis tester votre client mcp.
